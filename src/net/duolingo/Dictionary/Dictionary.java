@@ -26,21 +26,17 @@ public class Dictionary {
         String addedWord = keyboard.nextLine();
         String formatedWord = addedWord.substring(0, 1).toUpperCase() + addedWord.substring(1);
         String indexWord = addedWord.substring(0, 1).toLowerCase();
-        Set<String> tempSet = new HashSet<>();
-        tempSet.add(addedWord);
 
         if (Dictionary.containsKey(indexWord)) {
-            Set<String> tempSet2 = Dictionary.get(indexWord); 
-            tempSet2.add(formatedWord);
-            Dictionary.put(indexWord, tempSet2);
+            Set<String> tempSet = Dictionary.get(indexWord); 
+            tempSet.add(formatedWord);
+            Dictionary.put(indexWord, tempSet);
         } else {
-            Set<String> tempSet2 = new HashSet<>(); 
-            tempSet2.add(formatedWord);
-            Dictionary.put(indexWord, tempSet2);
+            Set<String> tempSet = new HashSet<>(); 
+            tempSet.add(formatedWord);
+            Dictionary.put(indexWord, tempSet);
         }
-        
         System.out.println("The word " + addedWord + " has been added to the dictionary.");
-        System.out.println(Dictionary);
     }
 
 

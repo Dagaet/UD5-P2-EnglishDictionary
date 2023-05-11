@@ -65,7 +65,6 @@ public class Dictionary {
         if (Dictionary.containsKey(indexWord)) {
             Set<String> tempSet = Dictionary.get(indexWord);
             tempSet.contains(formatedSearchWord);
-            Dictionary.put(indexWord, tempSet);
             System.out.println("The word "+formatedSearchWord+" exists in this dictionary.");
         } else {
             System.out.println("The word doesn't exist in this dictionary.");

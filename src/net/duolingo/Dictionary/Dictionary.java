@@ -50,10 +50,25 @@ public class Dictionary {
             Set<String> tempSet = Dictionary.get(indexWord);
             tempSet.remove(formatedErasedWord);
             Dictionary.put(indexWord, tempSet);
+            System.out.println("The word " + formatedErasedWord + " has been erased from the dictionary.");
+        } else {
+            System.out.println("The word doesn't exist in this dictionary.");
+        } 
+    }
+
+    public void existWord(){
+        System.out.println("Write a word to find it: ");
+        String searchWord = keyboard.nextLine();
+        String formatedSearchWord = searchWord.substring(0, 1).toUpperCase() + searchWord.substring(1);
+        String indexWord = searchWord.substring(0, 1).toLowerCase();
+
+        if (Dictionary.containsKey(indexWord)) {
+            Set<String> tempSet = Dictionary.get(indexWord);
+            tempSet.contains(formatedSearchWord);
+            Dictionary.put(indexWord, tempSet);
+            System.out.println("The word "+formatedSearchWord+" exists in this dictionary.");
         } else {
             System.out.println("The word doesn't exist in this dictionary.");
         }
-        System.out.println("The word " + formatedErasedWord + " has been erased from the dictionary.");
     }
-
 }

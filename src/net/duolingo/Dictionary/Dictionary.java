@@ -76,4 +76,16 @@ public class Dictionary {
         Dictionary.forEach((key, value) -> System.out.print("|" + key + "|"));
         System.out.println();
     }
+
+    public void searchByWord() {
+        System.out.println("Write a word inicial to see the words on it's index: ");
+        String searchWord = keyboard.nextLine();
+
+        if (Dictionary.containsKey(searchWord) && searchWord.length() == 1) {
+            Set<String> tempSet = Dictionary.get(searchWord);
+            System.out.println("The list of words is the following \n" + tempSet);
+        } else {
+            System.out.println("Either the word doesn't exist in this dictionary or you didn't write an initial.");
+        }
+    }
 }

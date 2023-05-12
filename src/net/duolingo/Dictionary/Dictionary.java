@@ -53,10 +53,10 @@ public class Dictionary {
             System.out.println("The word " + formatedErasedWord + " has been erased from the dictionary.");
         } else {
             System.out.println("The word doesn't exist in this dictionary.");
-        } 
+        }
     }
 
-    public void existWord(){
+    public void existWord() {
         System.out.println("Write a word to find it: ");
         String searchWord = keyboard.nextLine();
         String formatedSearchWord = searchWord.substring(0, 1).toUpperCase() + searchWord.substring(1);
@@ -65,9 +65,15 @@ public class Dictionary {
         if (Dictionary.containsKey(indexWord)) {
             Set<String> tempSet = Dictionary.get(indexWord);
             tempSet.contains(formatedSearchWord);
-            System.out.println("The word "+formatedSearchWord+" exists in this dictionary.");
+            System.out.println("The word " + formatedSearchWord + " exists in this dictionary.");
         } else {
             System.out.println("The word doesn't exist in this dictionary.");
         }
+    }
+
+    public void wordsAvailable() {
+        System.out.println("This are the available words: ");
+        Dictionary.forEach((key, value) -> System.out.print("|" + key + "|"));
+        System.out.println();
     }
 }

@@ -26,6 +26,7 @@ public class App {
         while (option != 6) {
             System.out.println(showMenu());
             option = KEYBOARD.nextInt();
+            KEYBOARD.nextLine();
             switch (option) {
                 case 1:
                     System.out.println("Write a word to add it to the dictionary: ");

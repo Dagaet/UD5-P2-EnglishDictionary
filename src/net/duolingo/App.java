@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import Dictionary.Dictionary;
+import dictionary.Dictionary;
 
 public class App {
 

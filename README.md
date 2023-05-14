@@ -1,18 +1,12 @@
-## Getting Started
+<h1 align="center">
+    English dictionary
+</h1>
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The company Duolingo Inc. has contacted us to make an aplication for their users. The main goal of this project is that the users have at their disposal a dictionary in witch they can storage and review the english words they learn every day.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+### Link to the documentation:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- [Explained mehods](/docs/methods.md)
+- [Explained Classes](/docs/classes.md)

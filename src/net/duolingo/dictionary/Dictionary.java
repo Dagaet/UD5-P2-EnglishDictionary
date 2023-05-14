@@ -1,4 +1,4 @@
-package Dictionary;
+package dictionary;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,47 +9,36 @@ import java.util.Set;
 public class Dictionary {
     private final Scanner keyboard = new Scanner(System.in);
 
-    private Map<String, Set<String>> Dictionary = new HashMap<>();
-
-    public Dictionary() {
-    }
-
-    public Map<String, Set<String>> getDictionary() {
-        return Dictionary;
-    }
-
-    public void setDictionary(Map<String, Set<String>> dictionary) {
-        Dictionary = dictionary;
-    }
+    private Map<String, Set<String>> dictionary = new HashMap<>();
 
     public void insertWord() {
         System.out.println("Write a word to add it to the dictionary: ");
-        String addedWord = keyboard.nextLine();
+        String addedWord = keyboard.nextLine().trim();
         String formatedWord = addedWord.substring(0, 1).toUpperCase() + addedWord.substring(1);
         String indexWord = addedWord.substring(0, 1).toLowerCase();
 
-        if (Dictionary.containsKey(indexWord)) {
-            Set<String> tempSet = Dictionary.get(indexWord);
+        if (dictionary.containsKey(indexWord)) {
+            Set<String> tempSet = dictionary.get(indexWord);
             tempSet.add(formatedWord);
-            Dictionary.put(indexWord, tempSet);
+            dictionary.put(indexWord, tempSet);
         } else {
             Set<String> tempSet = new HashSet<>();
             tempSet.add(formatedWord);
-            Dictionary.put(indexWord, tempSet);
+            dictionary.put(indexWord, tempSet);
         }
         System.out.println("The word " + formatedWord + " has been added to the dictionary.");
     }
 
     public void eraseWord() {
         System.out.println("Write a word to erase it: ");
-        String erasedWord = keyboard.nextLine();
+        String erasedWord = keyboard.nextLine().trim();
         String formatedErasedWord = erasedWord.substring(0, 1).toUpperCase() + erasedWord.substring(1);
         String indexWord = erasedWord.substring(0, 1).toLowerCase();
 
-        if (Dictionary.containsKey(indexWord)) {
-            Set<String> tempSet = Dictionary.get(indexWord);
+        if (dictionary.containsKey(indexWord)) {
+            Set<String> tempSet = dictionary.get(indexWord);
             tempSet.remove(formatedErasedWord);
-            Dictionary.put(indexWord, tempSet);
+            dictionary.put(indexWord, tempSet);
             System.out.println("The word " + formatedErasedWord + " has been erased from the dictionary.");
         } else {
             System.out.println("The word doesn't exist in this dictionary.");
@@ -58,12 +47,12 @@ public class Dictionary {
 
     public void existWord() {
         System.out.println("Write a word to find it: ");
-        String searchWord = keyboard.nextLine();
+        String searchWord = keyboard.nextLine().trim();
         String formatedSearchWord = searchWord.substring(0, 1).toUpperCase() + searchWord.substring(1);
         String indexWord = searchWord.substring(0, 1).toLowerCase();
 
-        if (Dictionary.containsKey(indexWord)) {
-            Set<String> tempSet = Dictionary.get(indexWord);
+        if (dictionary.containsKey(indexWord)) {
+            Set<String> tempSet = dictionary.get(indexWord);
             tempSet.contains(formatedSearchWord);
             System.out.println("The word " + formatedSearchWord + " exists in this dictionary.");
         } else {
@@ -73,16 +62,16 @@ public class Dictionary {
 
     public void wordsAvailable() {
         System.out.println("This are the available words: ");
-        Dictionary.forEach((key, value) -> System.out.print("|" + key + "|"));
-        System.out.println();
+        // dictionary.forEach((key, value) -> System.out.print("|" + key + "|"));
+        System.out.println(dictionary.keySet());
     }
 
     public void searchByWord() {
         System.out.println("Write a word inicial to see the words on it's index: ");
-        String searchWord = keyboard.nextLine();
+        String searchWord = keyboard.nextLine().trim();
 
-        if (Dictionary.containsKey(searchWord) && searchWord.length() == 1) {
-            Set<String> tempSet = Dictionary.get(searchWord);
+        if (dictionary.containsKey(searchWord) && searchWord.length() == 1) {
+            Set<String> tempSet = dictionary.get(searchWord);
             System.out.println("The list of words is the following \n" + tempSet);
         } else {
             System.out.println("Either the word doesn't exist in this dictionary or you didn't write an initial.");

@@ -1,8 +1,10 @@
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap.KeySetView;
 
 import dictionary.Dictionary;
 
 public class App {
+    private static final Scanner KEYBOARD = new Scanner(System.in); 
 
     public static String showMenu() {
         String msg = "=====================\n";
@@ -20,26 +22,33 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Dictionary dictionary = new Dictionary();
-        Scanner keyboard = new Scanner(System.in);
         Integer option = -1;
         while (option != 6) {
             System.out.println(showMenu());
-            option = keyboard.nextInt();
+            option = KEYBOARD.nextInt();
             switch (option) {
                 case 1:
-                    dictionary.insertWord();
+                    System.out.println("Write a word to add it to the dictionary: ");
+                    String addedWord = KEYBOARD.nextLine().trim();
+                    dictionary.insertWord(addedWord);
                     break;
                 case 2:
-                    dictionary.eraseWord();
+                    System.out.println("Write a word to erase it: ");
+                    String erasedWord = KEYBOARD.nextLine().trim();
+                    dictionary.eraseWord(erasedWord);
                     break;
                 case 3:
-                    dictionary.existWord();
+                    System.out.println("Write a word to find it: ");
+                    String searchWord = KEYBOARD.nextLine().trim();
+                    dictionary.existWord(searchWord);
                     break;
                 case 4:
                     dictionary.wordsAvailable();
                     break;
                 case 5:
-                    dictionary.searchByWord();
+                    System.out.println("Write a word inicial to see the words on it's index: ");
+                    String searchLetter = KEYBOARD.nextLine().trim();
+                    dictionary.searchByLetter(searchLetter);
                     break;
                 case 6:
                     System.out.println("Bye");
@@ -49,6 +58,6 @@ public class App {
                     break;
             }
         }
-        keyboard.close();
+        KEYBOARD.close();
     }
 }
